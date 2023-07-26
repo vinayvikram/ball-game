@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { Controls } from './components/controls';
+import { Screen } from './components/screen';
 
 function App() {
+
+
+  const [head, setHead] = useState({ x: 1, y: 1});
+
+  const [score, setScore] = useState(0);
+
+  const [isGameOver, setIsGameOver] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className='score-row'>
+            <div className="score">
+                {score}
+            </div>
+      </div>
+      <Screen head={head} score={score} setScore={setScore} isGameOver={isGameOver} setIsGameOver={setIsGameOver} />
+      <Controls head={head} setHead={setHead} setScore={setScore} setIsGameOver={setIsGameOver}/>
     </div>
   );
 }
