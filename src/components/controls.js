@@ -130,6 +130,7 @@ export const Controls = ({ head, setHead, setScore, setIsGameOver }) => {
 
     const handleTouchStart = useCallback((event) => {
         setTouchStart({ x: event.touches[0].clientX, y: event.touches[0].clientY});
+        event.stopPropagation();
     },[setTouchStart]);
 
     const handleTouchMove = useCallback((event) => {
@@ -157,6 +158,9 @@ export const Controls = ({ head, setHead, setScore, setIsGameOver }) => {
             }                                                                 
         }
         setTouchStart({ x: null, y: null}) 
+
+        event.stopPropagation();
+        
     },[touchStart, setTouchStart, setAction])
 
     useEffect(() => {

@@ -2,9 +2,11 @@ import { useState } from 'react';
 import './App.css';
 import { Controls } from './components/controls';
 import { Screen } from './components/screen';
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 function App() {
 
+  const handle = useFullScreenHandle();
 
   const [head, setHead] = useState({ x: 1, y: 1});
 
@@ -13,15 +15,15 @@ function App() {
   const [isGameOver, setIsGameOver] = useState(false);
 
   return (
-    <div className="app">
-      <div className='score-row'>
+    <FullScreen handle={handle} className="app">
+      <div className='score-row' onClick={handle.enter}>
             <div className="score">
                 {score}
             </div>
       </div>
       <Screen head={head} score={score} setScore={setScore} isGameOver={isGameOver} setIsGameOver={setIsGameOver} />
       <Controls head={head} setHead={setHead} setScore={setScore} setIsGameOver={setIsGameOver}/>
-    </div>
+    </FullScreen>
   );
 }
 
