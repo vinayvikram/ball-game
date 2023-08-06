@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ball-game/static/css/main.bda43dc0.css",
-    "main.js": "/ball-game/static/js/main.27dd5ed4.js",
+    "main.js": "/ball-game/static/js/main.2e5a8525.js",
     "static/js/787.c9654952.chunk.js": "/ball-game/static/js/787.c9654952.chunk.js",
     "index.html": "/ball-game/index.html",
     "main.bda43dc0.css.map": "/ball-game/static/css/main.bda43dc0.css.map",
-    "main.27dd5ed4.js.map": "/ball-game/static/js/main.27dd5ed4.js.map",
+    "main.2e5a8525.js.map": "/ball-game/static/js/main.2e5a8525.js.map",
     "787.c9654952.chunk.js.map": "/ball-game/static/js/787.c9654952.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bda43dc0.css",
-    "static/js/main.27dd5ed4.js"
+    "static/js/main.2e5a8525.js"
   ]
 }
