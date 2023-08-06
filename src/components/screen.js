@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Snake } from "./snake";
 
-export const Screen = ({ head, score, setScore, isGameOver, setIsGameOver }) => {
+export const Screen = ({ head, score, setScore, isGameOver, setIsGameOver, playGame, setPlayGame, enterFullScreen }) => {
 
     const screen = document.getElementById("screen");
 
@@ -37,14 +37,30 @@ export const Screen = ({ head, score, setScore, isGameOver, setIsGameOver }) => 
         
     },[head, food]);
 
+    if(!playGame){
+        return (
+            <div className="screen start-game">
+                
+                <button onClick={() => {
+                    enterFullScreen();
+                    setPlayGame(true)
+                }}>
+                    Play
+                </button>
+            </div>
+        )
+    }
+
     if(isGameOver){
         return (
             <div className="screen game-over">
                 <div>
                     GAME OVER !
                 </div>
-                <button onClick={() => setIsGameOver(false)}>
-                    Replay
+                <button onClick={() => {
+                    setIsGameOver(false)
+                }}>
+                   Replay
                 </button>
             </div>
         )
@@ -54,11 +70,6 @@ export const Screen = ({ head, score, setScore, isGameOver, setIsGameOver }) => 
         <div className="screen" id="screen">
             <Snake head={head} />
            {!!food && <div id="food" style={{
-                position: "absolute",
-                background: "green",
-                width:"10px",
-                height: "10px",
-                borderRadius: "5px",
                 left: food.x,
                 bottom: food.y
             }}>

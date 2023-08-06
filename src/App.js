@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import './App.css';
 import { Controls } from './components/controls';
 import { Screen } from './components/screen';
@@ -14,14 +14,16 @@ function App() {
 
   const [isGameOver, setIsGameOver] = useState(false);
 
+  const [playGame, setPlayGame] = useState(false);
+
   return (
     <FullScreen handle={handle} className="app">
-      <div className='score-row' onClick={handle.enter}>
+      <div className='score-row' >
             <div className="score">
                 {score}
             </div>
       </div>
-      <Screen head={head} score={score} setScore={setScore} isGameOver={isGameOver} setIsGameOver={setIsGameOver} />
+      <Screen head={head} score={score} setScore={setScore} isGameOver={isGameOver} playGame={playGame} setPlayGame={setPlayGame} setIsGameOver={setIsGameOver} enterFullScreen={handle.enter} />
       <Controls head={head} setHead={setHead} setScore={setScore} setIsGameOver={setIsGameOver}/>
     </FullScreen>
   );

@@ -5,17 +5,17 @@ html, body, #root {
 
 .app{
   display: flex;
-  height: 100%;
-  width: 100%;
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
   flex-direction: column;
   align-items: center;
   padding: 10px;
+  gap: 10px;
 }
 
 .screen {
   flex: 1;
-  border: 1px solid black;
-  margin: 10px 50px;
+  border: 1px solid red;
   position: relative;
   overflow: hidden;
   border-radius: 4px;
@@ -28,6 +28,7 @@ html, body, #root {
   padding: 10px;
   text-align: center;
   border: 1px solid green;
+  border-radius: 4px;
   color: green;
   width: 30%;
 }
@@ -36,9 +37,17 @@ html, body, #root {
   position: absolute;
   width: 10px;
   height: 10px;
-  border-radius: 5px;
+  border-radius: 50%;
   background-color: red;
   transition: all linear;
+}
+
+#food {
+  position: absolute;
+  background: green;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
 }
 
 .controls {
@@ -51,11 +60,26 @@ html, body, #root {
   padding: 50px;
 }
 
-.game-over {
+.game-over, .start-game {
   display: flex;
   flex-direction: column;
   gap: 20px;
   justify-content: center;
   align-items: center;
+  color: red;
+}
+
+.game-over button {
+  background-color: white;
+  border-radius: 4px;
+  font-size: medium;
+  color: red;
+}
+
+.start-game button {
+  background-color: white;
+  border-radius: 4px;
+  font-size: medium;
+  color: green;
 }
 
